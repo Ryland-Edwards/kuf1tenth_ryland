@@ -1,3 +1,4 @@
+from struct import pack
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import Command
@@ -6,21 +7,29 @@ import os
 import yaml
 
 def generate_launch_description():
-   ld = LaunchDescription()
+     ld = LaunchDescription()
 
-   brake_node = Node(
-        package='kuf1tenth',
-        executable='brake',
-        name='brake',
-   )
+     brake_node = Node(
+          package='kuf1tenth',
+          executable='brake',
+          name='brake',
+     )
 
-   wall_follow_node = Node(
-        package='kuf1tenth',
-        executable='wall_follow',
-        name='wall_follow',
-   )
+     wall_follow_node = Node(
+          package='kuf1tenth',
+          executable='wall_follow',
+          name='wall_follow',
+     )
 
-   ld.add_action(brake_node)
-   ld.add_action(wall_follow_node)
+     model_node = Node(
+          package='kuf1tenth',
+          exicutable='model',
+          name='model',
+     )
 
-   return ld
+
+     ld.add_action(brake_node)
+     ld.add_action(wall_follow_node)
+     ld.add_action(model_node)
+
+     return ld
