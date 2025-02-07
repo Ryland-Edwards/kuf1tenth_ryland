@@ -15,7 +15,7 @@ class ModelNode(Node):  # Changed class name to ModelNode
         self.get_logger().info('ModelNode has been started.')  # Updated message
 
         # PyTorch model loading setup
-        self.model_path = "/models/pytorch_model.pth"  # Changed to .pth format
+        self.model_path = "models/pytorch_model.pth"  # Changed to .pth format
         self.model = torch.load(self.model_path)
         self.model.eval()  # Set model to evaluation mode
         
