@@ -6,6 +6,7 @@ from rclpy.node import Node
 from ackermann_msgs.msg import AckermannDriveStamped
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Header
+from PyTorchModel import PyTorchModel 
 
 class ModelNode(Node):  # Changed class name to ModelNode
     def __init__(self):
@@ -15,8 +16,9 @@ class ModelNode(Node):  # Changed class name to ModelNode
         self.get_logger().info('ModelNode has been started.')  # Updated message
 
         # PyTorch model loading setup
-        self.model_path = "/sim_ws/src/kuf1tenth_ryland/kuf1tenth_ryland/models/pytorch_model.pth"  # Changed to .pth format
-        self.model = torch.load(self.model_path)
+        self.model = PyTorchModel() 
+        state_dict = torch.load("/sim_ws/src/kuf1tenth_ryland/kuf1tenth_ryland/models/pytorch_model.pth")
+        self.model.load_state_dict(state_dict)
         self.model.eval()  # Set model to evaluation mode
         
         # Device configuration (CPU/GPU)
