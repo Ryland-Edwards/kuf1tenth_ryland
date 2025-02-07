@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'kuf1tenth'
+package_name = 'kuf1tenth_ryland'
 
 setup(
     name=package_name,
