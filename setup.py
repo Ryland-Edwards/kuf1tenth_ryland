@@ -30,7 +30,7 @@ setup(
             'old_ftg = kuf1tenth.gap:main',
             'ftg = kuf1tenth.ftg:main',
             'translate = kuf1tenth.translate:main',
-            'model = kuf1tenth.model:main',
+            'model = kuf1tenth_ryland.model:main',
         ],
     },
 )
